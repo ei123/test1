@@ -1,0 +1,43 @@
+
+
+<label>ServerName</label>
+<br><br>
+
+<input type="text" 
+class="formControl"
+[(ngModel)]="serverName"
+/>
+<br><br>
+
+<!-- <p>{{ serverName }}</p> -->
+
+
+
+<!-- bootstrap install -->
+<button class="btn btn-primary" [disabled]="!allowNewServer" 
+(click)="onCreateServer()">Add Server</button>
+
+<!-- Angular Directives => *ngIf, *ngFor, *ngModel -->
+<!-- <p *ngIf="serverCreated; else noServer">
+    Server was created, server name is {{ serverName }}
+</p> -->
+
+<p *ngFor="let server of servers">
+    Server was created, server name is {{server}}
+</p>
+
+<!-- ng template uses -->
+<ng-template #noServer> 
+    <p>No server was created!</p>
+</ng-template>
+
+<!-- String Interpolation -->
+<p>{{ allowNewServer }}</p>
+
+<!-- Property Binding -->
+<p [innerText]="allowNewServer"></p>
+
+<p>{{ serverCreationStatus }}</p>
+
+<app-server></app-server>
+<app-server></app-server>
